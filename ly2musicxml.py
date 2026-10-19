@@ -243,7 +243,7 @@ def note_type(d):
     raise ValueError(d)
 
 
-def pitch_xml(p, chord, e, voice, staff_stem):
+def pitch_xml(p, chord, e, voice, staff_stem, beam=None):
     step, alter, octave = p
     out = ["<note>"]
     if chord:
@@ -262,6 +262,9 @@ def pitch_xml(p, chord, e, voice, staff_stem):
         out.append("<accidental>%s</accidental>" % {0: "natural", 1: "sharp", -1: "flat"}[alter])
     if staff_stem:
         out.append("<stem>%s</stem>" % staff_stem)
+    if beam and not chord:
+        for n, kind in enumerate(beam, 1):
+            out.append('<beam number="%d">%s</beam>' % (n, kind))
     notations = []
     if e.tie_start:
         notations.append('<tied type="start"/>')
@@ -282,6 +285,37 @@ def pitch_xml(p, chord, e, voice, staff_stem):
         out.append('<lyric number="1"><syllabic>%s</syllabic><text>%s</text></lyric>' % (syl, escape(text)))
     out.append("</note>")
     return "".join(out)
+
+
+def beams(evs):
+    """Beam runs of eighths/sixteenths that sit within one quarter-note beat."""
+    marks = {}
+    run = []
+
+    def flush():
+        if len(run) > 1:
+            for k, e in enumerate(run):
+                kind = "begin" if k == 0 else "end" if k == len(run) - 1 else "continue"
+                levels = [kind]
+                if e.dur == 1:
+                    prev16 = k > 0 and run[k - 1].dur == 1
+                    next16 = k < len(run) - 1 and run[k + 1].dur == 1
+                    levels.append("continue" if prev16 and next16 else "end" if prev16 else
+                                  "begin" if next16 else ("backward hook" if k else "forward hook"))
+                marks[id(e)] = levels
+        run.clear()
+
+    for e in evs:
+        short = e.kind == "note" and e.dur < DIV
+        beat = e.start // DIV
+        if short and run and run[-1].start // DIV == beat and run[-1].start + run[-1].dur == e.start:
+            run.append(e)
+        else:
+            flush()
+            if short and e.start % DIV + e.dur <= DIV:
+                run.append(e)
+    flush()
+    return marks
 
 
 def measure_events(evs, m):
@@ -308,6 +342,7 @@ def part_xml(pid, music, nbars, extra_lyrics):
                     break
                 out.append("<backup><duration>%d</duration></backup>" % BAR)
             t = m * BAR
+            bm = beams(evs)
             for e in evs:
                 if e.start > t:
                     out.append("<forward><duration>%d</duration></forward>" % (e.start - t))
@@ -322,7 +357,7 @@ def part_xml(pid, music, nbars, extra_lyrics):
                         ' measure="yes"' if whole else "", e.dur, v, typ))
                 else:
                     for k, p in enumerate(e.pitches):
-                        out.append(pitch_xml(p, k > 0, e, v, stem))
+                        out.append(pitch_xml(p, k > 0, e, v, stem, bm.get(id(e))))
                 t = e.start + e.dur
             if t < (m + 1) * BAR and evs:
                 out.append("<forward><duration>%d</duration></forward>" % ((m + 1) * BAR - t))
