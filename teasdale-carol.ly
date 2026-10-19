@@ -101,7 +101,7 @@ lowerWords = \lyricmode {
   Kings __ _ dressed in er -- mine fine.
   And gifts __ _ of pre -- cious wine. __ _
   Shep -- herds came __ _ _ out from the North, __ _
-  they had not __ _ a -- ny gold. __ _
+  they had __ _ not a -- ny gold. __ _
   Wise men came from out the East, And they were wrapped in white; __ _ _
   The star that led them all the way Did glo -- ri -- fy the night. __ _ _
   An -- gels came from hea -- ven high, And they were clad with wings; __ _ _
