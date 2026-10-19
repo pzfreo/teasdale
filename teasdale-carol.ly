@@ -58,7 +58,7 @@ upper = {
   es'8 es' es''4. c''8 | aes'8 aes' aes'4. g'8 | f'8 f' f''4. d''8 | bes'8\mp bes' bes'4 r8 g'8 |
   aes'8 aes' c''4. aes'8 | g'8 g' bes'4. g'8 | g'8 f' f'4. es'16( d') | es'8( es' es'2~ | es'2.) |
   << \new Voice { \voiceOne r8 g'8 bes'4 g'4 | aes'4 c''2 | bes'2. | bes'2.\fermata | bes'8 r r2 }
-     \new Voice { \voiceTwo s8 d'8 g'4 d'4 | es'4 g'2 | g'2. | g'2. | g'8 s s2 } >>
+     \new Voice { \voiceTwo s8 d'8 g'4 d'4 | es'4 aes'2 | g'2. | g'2. | g'8 s s2 } >>
   
   \bar "|."
 }

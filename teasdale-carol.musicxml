@@ -447,7 +447,7 @@
 <note><pitch><step>C</step><octave>5</octave></pitch><duration>8</duration><voice>1</voice><type>half</type><stem>up</stem></note>
 <backup><duration>12</duration></backup>
 <note><pitch><step>E</step><alter>-1</alter><octave>4</octave></pitch><duration>4</duration><voice>2</voice><type>quarter</type><stem>down</stem></note>
-<note><pitch><step>G</step><octave>4</octave></pitch><duration>8</duration><voice>2</voice><type>half</type><stem>down</stem></note>
+<note><pitch><step>A</step><alter>-1</alter><octave>4</octave></pitch><duration>8</duration><voice>2</voice><type>half</type><stem>down</stem></note>
 </measure>
 <measure number="61">
 <note><pitch><step>B</step><alter>-1</alter><octave>4</octave></pitch><duration>12</duration><voice>1</voice><type>half</type><dot/><stem>up</stem></note>
