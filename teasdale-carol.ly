@@ -45,7 +45,7 @@ upper = {
   aes'8 aes' c''4. aes'8 | g'8 g' bes'4. g'8 | g'8 f' f'4. es'16( d') | es'8 es' es'4. r8 |
   R2.^\markup \italic "(Ommm)" |
   << { \voiceOne es''4\p\melisma d'' bes' | c''4 bes'4. r8 }
-     \new Voice { \voiceTwo <es' g'>2.~ | es'4 <es' g'>4. s8 } >>
+     \new Voice { \voiceTwo <es' g'>2.~ | <es' f'>4 <es' g'>4. s8 } >>
   << { \voiceOne g'4 <g' c''> <c'' es''> | <bes' d''>4 <d'' f''>8 r <bes' d''>4 | <f' c''>4 <aes' es''> <f' c''> | <f' bes'>4 <g' d''>4 <f' bes'>4 | <aes' c''>4 <es' aes'> <d' f'> | <es' g'>4 <g' bes'> <bes' es''>\melismaEnd | <c'' es''>4\melisma <aes' c''> <c'' es''> | <c'' f''>4 <aes' c''> r4 | <d'' f''>4 <bes' d''> <d'' f''> | <d'' g''>4\p <bes' d''> <g' bes'> | <f' c''>4 <aes' es''> <f' c''> | <f' bes'>4 <g' d''>4 <f' bes'>4 | <aes' c''>4 <f' aes'> <d' f'> | <es' g'>4 <g' bes'>2 | <g' bes'>8\melismaEnd r r2 \oneVoice }
      \new Voice { \voiceTwo es'4 es' g' | f'4 g'8 s f'4 | es'4 es' es' | d'4 f' d' | es'4 c' c' | bes4 es' g' | aes'4 es' aes' | aes'4 f' s4 | bes'4 f' bes' | bes'4 g' d' | es'4 f' es' | d'4 f' d' | es'4 c' aes | bes4 es'2 | es'8 s s2 } >>
   
