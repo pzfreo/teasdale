@@ -506,12 +506,12 @@
 <measure number="9">
 <note><rest/><duration>4</duration><voice>1</voice><type>quarter</type></note>
 <note><pitch><step>E</step><alter>-1</alter><octave>4</octave></pitch><duration>4</duration><voice>1</voice><type>quarter</type><lyric number="1"><syllabic>single</syllabic><text>And</text></lyric></note>
-<note><pitch><step>F</step><octave>4</octave></pitch><duration>4</duration><tie type="start"/><voice>1</voice><type>quarter</type><notations><tied type="start"/><slur type="start"/></notations><lyric number="1"><syllabic>single</syllabic><text>gifts</text></lyric></note>
+<note><pitch><step>F</step><octave>4</octave></pitch><duration>4</duration><tie type="start"/><voice>1</voice><type>quarter</type><notations><tied type="start"/></notations><lyric number="1"><syllabic>single</syllabic><text>gifts</text></lyric></note>
 </measure>
 <measure number="10">
 <note><pitch><step>F</step><octave>4</octave></pitch><duration>4</duration><tie type="stop"/><voice>1</voice><type>quarter</type><notations><tied type="stop"/></notations></note>
-<note><pitch><step>C</step><octave>4</octave></pitch><duration>4</duration><voice>1</voice><type>quarter</type><notations><slur type="stop"/></notations></note>
-<note><pitch><step>A</step><alter>-1</alter><octave>3</octave></pitch><duration>4</duration><voice>1</voice><type>quarter</type><lyric number="1"><syllabic>single</syllabic><text>of</text></lyric></note>
+<note><pitch><step>C</step><octave>4</octave></pitch><duration>4</duration><voice>1</voice><type>quarter</type><notations><slur type="start"/></notations></note>
+<note><pitch><step>A</step><alter>-1</alter><octave>3</octave></pitch><duration>4</duration><voice>1</voice><type>quarter</type><notations><slur type="stop"/></notations><lyric number="1"><syllabic>single</syllabic><text>of</text></lyric></note>
 </measure>
 <measure number="11">
 <note><pitch><step>E</step><alter>-1</alter><octave>4</octave></pitch><duration>4</duration><voice>1</voice><type>quarter</type><notations><slur type="start"/></notations><lyric number="1"><syllabic>begin</syllabic><text>pre</text></lyric></note>

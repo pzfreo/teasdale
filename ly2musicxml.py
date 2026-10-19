@@ -76,6 +76,7 @@ class Event:
         self.melisma_start = self.melisma_end = False
         self.lyric = None  # (syllabic, text)
         self.fermata = False
+        self.own_syllable = False  # \sylInSlur
 
 
 class Music:
@@ -87,6 +88,7 @@ class Music:
         self.lyric_events = []
         self.prev_dur = DIV
         self.prev_chord = None
+        self.syl_in_slur = False
 
     def parse(self, src):
         toks = tokens(strip_comments(src))
@@ -143,6 +145,8 @@ class Music:
             last.melisma_start = True
         elif tok == "\\melismaEnd":
             last.melisma_end = True
+        elif tok == "\\sylInSlur":
+            self.syl_in_slur = True
         elif tok == "\\fermata":
             last.fermata = True
         elif tok in ("^\\markup", "_\\markup"):
@@ -180,6 +184,8 @@ class Music:
 
     def add(self, evs, e, t, lyric):
         self.prev_dur = e.dur
+        if self.syl_in_slur and e.kind == "note":
+            e.own_syllable, self.syl_in_slur = True, False
         if evs and evs[-1].tie_start and e.kind == "note":
             e.tie_stop = True
         evs.append(e)
@@ -196,7 +202,7 @@ def attach_lyrics(music, words):
     for e in music.lyric_events:
         if e.kind != "note":
             continue
-        cont = tied or in_slur or in_melisma
+        cont = (tied or in_slur or in_melisma) and not e.own_syllable
         if not cont:
             notes.append(e)
         tied = e.tie_start
