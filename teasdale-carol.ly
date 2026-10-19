@@ -95,7 +95,7 @@ lower = {
     es'4\p( g' f') | d'( f' es') | c'( es' d') | es'2.~ | es'2. |
   }
   << \new Voice { \voiceOne r8 d'8 g'4 d'4 | es'4\mp\< es' f'\! | g'2. | g'2.\fermata | g'8 r r2 }
-     \new Voice { \voiceTwo s8 g8 d'4 g4 | c'4 es' d' | es'2. | es'2. | es'8 s s2 } >>
+     \new Voice { \voiceTwo s8 bes8 d'4 bes4 | c'4 es' d' | es'2. | es'2. | es'8 s s2 } >>
   
   \bar "|."
 }
