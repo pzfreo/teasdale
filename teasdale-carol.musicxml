@@ -558,8 +558,8 @@
 <note><pitch><step>A</step><alter>-1</alter><octave>3</octave></pitch><duration>4</duration><voice>1</voice><type>quarter</type><lyric number="1"><syllabic>end</syllabic><text>ny</text></lyric></note>
 </measure>
 <measure number="20">
-<note><pitch><step>A</step><alter>-1</alter><octave>3</octave></pitch><duration>4</duration><voice>1</voice><type>quarter</type><lyric number="1"><syllabic>single</syllabic><text>gold.</text></lyric></note>
-<note><pitch><step>F</step><octave>3</octave></pitch><duration>6</duration><voice>1</voice><type>quarter</type><dot/></note>
+<note><pitch><step>B</step><alter>-1</alter><octave>3</octave></pitch><duration>4</duration><voice>1</voice><type>quarter</type><lyric number="1"><syllabic>single</syllabic><text>gold.</text></lyric></note>
+<note><pitch><step>G</step><octave>3</octave></pitch><duration>6</duration><voice>1</voice><type>quarter</type><dot/></note>
 <note><rest/><duration>2</duration><voice>1</voice><type>eighth</type></note>
 </measure>
 <measure number="21">

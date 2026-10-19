@@ -78,7 +78,7 @@ lower = {
   es'4\p( g') es' | f'4( es') es' | d'4( c') es' | d'2 r4 |
   r4 es' f'~ | f' c'( \sylInSlur aes) | es'( c') aes | aes f4. r8 |
   es'4\mp( bes') g' | aes' g' es' | f' c'' a' | bes'( aes') f' |
-  r4 es' f'~ | f' d' bes | es'( c') aes | aes f4. r8 |
+  r4 es' f'~ | f' d' bes | es'( c') aes | bes g4. r8 |
   R2. |
   es'8\p g' bes'4. g'8 | aes'8 aes' g'4. aes'8 | bes'8 g' es'4. g'8 | bes'8 bes' bes'4 r8 g'8 |
   aes'8 aes' c''4. aes'8 | g'8 g' bes'4. g'8 | g'8 f' f'4. es'16( d') | es'8 es' es'4. r8 |
