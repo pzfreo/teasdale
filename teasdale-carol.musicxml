@@ -738,8 +738,8 @@
 <note><pitch><step>E</step><alter>-1</alter><octave>4</octave></pitch><duration>4</duration><voice>1</voice><type>quarter</type><notations><slur type="stop"/></notations></note>
 </measure>
 <measure number="53">
-<note><pitch><step>D</step><octave>4</octave></pitch><duration>8</duration><voice>1</voice><type>half</type><notations><slur type="start"/></notations></note>
-<note><pitch><step>D</step><octave>4</octave></pitch><duration>4</duration><voice>1</voice><type>quarter</type><notations><slur type="stop"/></notations></note>
+<note><pitch><step>D</step><octave>4</octave></pitch><duration>8</duration><voice>1</voice><type>half</type></note>
+<note><rest/><duration>4</duration><voice>1</voice><type>quarter</type></note>
 </measure>
 <measure number="54">
 <note><pitch><step>E</step><alter>-1</alter><octave>4</octave></pitch><duration>4</duration><voice>1</voice><type>quarter</type><notations><slur type="start"/></notations></note>
