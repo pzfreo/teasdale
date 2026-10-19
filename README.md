@@ -5,6 +5,7 @@ Words: Sara Teasdale. Melody: In the Wheatfield (trad.).
 - `teasdale-carol.pdf`: the score (two A4 pages)
 - `teasdale-carol.ly`: LilyPond source
 - `teasdale-carol.musicxml`: MusicXML with lyrics, for MuseScore, Sibelius, Dorico or practice apps
+- `teasdale-carol.mxl`: the same, compressed (the form most apps and sites prefer)
 
 To rebuild the PDF after editing:
 
