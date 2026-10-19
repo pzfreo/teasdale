@@ -31,6 +31,13 @@ global = {
 
 ah = \markup \italic "Ah"
 
+% draw a multi-bar rest as a single whole-rest sign, centred where LilyPond puts its rest
+#(define (whole-rest-sign grob)
+   (let* ((x (interval-center (ly:stencil-extent (ly:multi-measure-rest::print grob) X)))
+          (rest (ly:font-get-glyph (ly:grob-default-font grob) "rests.0")))
+     (ly:stencil-translate rest
+       (cons (- x (interval-center (ly:stencil-extent rest X))) 1))))
+
 % next note takes its own syllable even though it is under a slur
 sylInSlur = \once \set melismaBusyProperties = #'()
 
@@ -52,7 +59,7 @@ upper = {
   << { \voiceOne g'4 <g' c''> <c'' es''> | <bes' d''>4 <d'' f''>8 r <bes' d''>4 | <f' c''>4 <aes' es''> <f' c''> | <f' bes'>4 <g' d''>4 <f' bes'>4 | <aes' c''>4 <es' aes'> <d' f'> | <es' g'>4 <g' bes'> <bes' es''>\melismaEnd | <c'' es''>4\melisma <aes' c''> <c'' es''> | <c'' f''>4 <aes' c''> r4 | <d'' f''>4 <bes' d''> <d'' f''> | <d'' g''>4\p <bes' d''> <g' bes'> | <f' c''>4 <aes' es''> <f' c''> | <f' bes'>4 <g' d''>4 <f' bes'>4 | <aes' c''>4 <f' aes'> <d' f'> | <es' g'>4 <g' bes'>2 | <g' bes'>8\melismaEnd r r2 \oneVoice }
      \new Voice { \voiceTwo es'4 es' g' | f'4 g'8 s f'4 | es'4 f' es' | d'4 f' d' | es'4 c' c' | bes4 es' g' | aes'4 es' aes' | aes'4 f' s4 | bes'4 f' bes' | bes'4 g' d' | es'4 f' es' | d'4 f' d' | es'4 c' aes | bes4 es'2 | es'8 s s2 } >>
   
-  R2.*2 |
+  R2.*3 |
   es'8\mf g' bes'4. g'8 | aes'8 aes' g'4. aes'8 | bes'8 g' es'4. g'8 | bes'8 bes' bes'4 r8 g'8 |
   aes'8 aes' c''4. aes'8 | g'8 g' bes'4. g'8 | g'8 f' f'4. es'16( d') | es'8 es' es'4 r8 es'8 |
   es'8 es' es''4. c''8 | aes'8 aes' aes'4. g'8 | f'8 f' f''4. d''8 | bes'8\mp bes' bes'4 r8 g'8 |
@@ -87,7 +94,7 @@ lower = {
   aes'8 aes' c''4. aes'8 | g'8 g' bes'4. g'8 | g'8 f' f'4. es'16( d') | es'8 es' es'4. r8 |
   es'8\mf es' es''4. c''8 | aes'8 aes' aes'4. g'8 | f'8 f' f''4. d''8 | bes'8 bes' bes'4 r8 g'8 |
   aes'8 aes' c''4. aes'8 | g'8 g' bes'4. g'8 | g'8 f' f'4. es'16( d') | es'8 es' es'2 | es'8 r r2 |
-  R2.*2 |
+  R2.*3 |
   es'8\mf g' bes'4. g'8 | aes'8 aes' g'4. aes'8 | bes'8 g' es'4. g'8 | bes'8 bes' bes'4 r4 |
   \new Voice {
     es'4(_\ah g' f') | d'( f' es') | c'( es' \tieAtStems d'^~) | d'( c' bes) |
@@ -125,5 +132,7 @@ lowerWords = \lyricmode {
   >>
   \layout {
     \context { \Score \override BarNumber.break-visibility = ##(#f #t #t) }
+    % multi-bar rests: one whole-rest sign with the count above
+    \context { \Staff \override MultiMeasureRest.stencil = #whole-rest-sign }
   }
 }
