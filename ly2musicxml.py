@@ -72,6 +72,7 @@ class Event:
     def __init__(self, start, dur, pitches, kind="note"):
         self.start, self.dur, self.pitches, self.kind = start, dur, pitches, kind
         self.tie_start = self.tie_stop = False
+        self.tied_pitches = None  # pitches carried over a chord tie; None = all
         self.slur_start = self.slur_stop = False
         self.melisma_start = self.melisma_end = False
         self.lyric = None  # (syllabic, text)
@@ -188,6 +189,8 @@ class Music:
             e.own_syllable, self.syl_in_slur = True, False
         if evs and evs[-1].tie_start and e.kind == "note":
             e.tie_stop = True
+            # like LilyPond, a chord tie only joins the pitches that continue
+            evs[-1].tied_pitches = e.tied_pitches = set(evs[-1].pitches) & set(e.pitches)
         evs.append(e)
         if lyric:
             self.lyric_events.append(e)
@@ -257,9 +260,10 @@ def pitch_xml(p, chord, e, voice, staff_stem, beam=None):
     out.append("<pitch><step>%s</step>%s<octave>%d</octave></pitch>" % (
         step, "<alter>%d</alter>" % alter if alter else "", octave))
     out.append("<duration>%d</duration>" % e.dur)
-    if e.tie_start:
+    tied = e.tied_pitches is None or p in e.tied_pitches
+    if e.tie_start and tied:
         out.append('<tie type="start"/>')
-    if e.tie_stop:
+    if e.tie_stop and tied:
         out.append('<tie type="stop"/>')
     out.append("<voice>%d</voice>" % voice)
     typ, dots = note_type(e.dur)
@@ -272,9 +276,9 @@ def pitch_xml(p, chord, e, voice, staff_stem, beam=None):
         for n, kind in enumerate(beam, 1):
             out.append('<beam number="%d">%s</beam>' % (n, kind))
     notations = []
-    if e.tie_start:
+    if e.tie_start and tied:
         notations.append('<tied type="start"/>')
-    if e.tie_stop:
+    if e.tie_stop and tied:
         notations.append('<tied type="stop"/>')
     if not chord:
         if e.slur_start or e.melisma_start:
