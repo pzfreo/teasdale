@@ -73,7 +73,7 @@ lower = {
   \global
   R2.*4 |
   es'4\p( g') es' | f'4( es') es' | d'4( c') es' | d'2 r4 |
-  r4 es' f'~ | f' c'( aes) | es'( c') aes | aes f4. r8 |
+  r4 es' f'~( | f' c') aes | es'( c') aes | aes f4. r8 |
   es'4\mp( bes') g' | aes' aes' f' | f' c'' a' | bes'( aes') f' |
   r4 es' f'~ | f' d' bes | es'( c') aes | aes f4. r8 |
   R2. |
@@ -96,7 +96,7 @@ lower = {
 
 lowerWords = \lyricmode {
   Kings __ _ dressed in er -- mine fine.
-  And gifts of pre -- cious wine. __ _
+  And gifts __ of pre -- cious wine. __ _
   Shep -- herds came __ _ _ out from the North, __ _
   they had not __ _ a -- ny gold. __ _
   Wise men came from out the East, And they were wrapped in white; __ _ _
