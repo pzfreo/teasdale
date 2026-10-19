@@ -91,7 +91,7 @@ lower = {
   es'8\mf g' bes'4. g'8 | aes'8 aes' g'4. aes'8 | bes'8 g' es'4. g'8 | bes'8 bes' bes'4 r4 |
   \new Voice {
     es'4(_\ah g' f') | d'( f' es') | c'( es' \tieAtStems d'^~) | d'( c' bes) |
-    g4( bes des') | c'2( c'4) | aes( c' es') | d'2\mp( d'4) |
+    g4( bes des') | c'2( c'4) | a( c' es') | d'2\mp( d'4) |
     es'4\p( g' f') | d'( f' es') | c'( es' d') | es'2.~ | es'2. |
   }
   << \new Voice { \voiceOne r8 d'8 g'4 d'4 | es'4\mp\< es' f'\! | g'2. | g'2.\fermata | g'8 r r2 }
