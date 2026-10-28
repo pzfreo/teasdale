@@ -281,10 +281,10 @@ def pitch_xml(p, chord, e, voice, staff_stem, beam=None):
     if e.tie_stop and tied:
         notations.append('<tied type="stop"/>')
     if not chord:
-        if e.slur_start or e.melisma_start:
-            notations.append('<slur type="start"/>' if e.slur_start else "")
         if e.slur_stop:
             notations.append('<slur type="stop"/>')
+        if e.slur_start or e.melisma_start:
+            notations.append('<slur type="start"/>' if e.slur_start else "")
         if e.fermata:
             notations.append("<fermata/>")
     notations = [n for n in notations if n]

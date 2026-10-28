@@ -19,3 +19,11 @@ To regenerate the MusicXML from the `.ly` (LilyPond has no MusicXML export, so
 ```
 python3 ly2musicxml.py teasdale-carol.ly teasdale-carol.musicxml
 ```
+
+To see what changed as notation (git revisions; default `HEAD` against the
+working tree). This writes old and new PDFs with the changed bars in red, and an
+overlay of the two per page: red for the old version only, green for the new:
+
+```
+python3 notediff.py [OLD [NEW]]
+```
